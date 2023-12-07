@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/utils/my_card.dart';
 
+import 'onboard_screen.dart';
+
 class LanguagesScreen extends StatefulWidget {
   const LanguagesScreen({super.key});
 
@@ -21,7 +23,14 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
         backgroundColor: Colors.deepPurpleAccent,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OnBoardScreen(),
+                ),
+              );
+            },
             icon: const Icon(Icons.check),
           ),
         ],
