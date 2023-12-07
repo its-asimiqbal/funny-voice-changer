@@ -1,38 +1,20 @@
 import 'package:flutter/material.dart';
 
+enum ButtonValues { value1, value2, value3, value4, value5, value6, value7 }
+
 // ignore: must_be_immutable
 class MyCard extends StatefulWidget {
-  MyCard(
-      {super.key,
-      required this.imagePath,
-      required this.title,
-      required this.value});
+  MyCard({super.key, required this.imagePath, required this.title, required this.newRadio});
 
   String imagePath;
   String title;
-  int value;
+  NewRadio? newRadio;
 
   @override
   State<MyCard> createState() => _MyCardState();
 }
 
 class _MyCardState extends State<MyCard> {
-  // bool isSelected = false;
-
-  MyCard? _selectedCard;
-
-  // _type keeps track of the selected payment method
-  int? _type = 1;
-  // _handleRadio is called to update _type, which may trigger changes in the UI based on the selected payment method
-  void _handleRadio(Object? e) => setState(() {
-        if (_type != e && e != null) {
-          _type = e as int;
-          _selectedCard = widget;
-        } else if (_selectedCard == widget) {
-          _type = null;
-          _selectedCard = null;
-        }
-      });
 
   @override
   void initState() {
@@ -56,40 +38,34 @@ class _MyCardState extends State<MyCard> {
             ),
           ),
           title: Text(widget.title),
-          trailing: Radio(
-            value: widget.value,
-            groupValue: _type,
-            onChanged: _handleRadio,
-            activeColor: Colors.deepPurple,
-          ),
+          trailing: widget.newRadio,
         ),
       ),
     );
   }
 }
 
+enum ButtonValuesEnum { value1, value2, value3, value4, value5, value6, value7 }
 
+// ignore: must_be_immutable
+class NewRadio extends StatelessWidget {
+  NewRadio(
+      {super.key,
+      required this.value,
+      required this.selectedButtonValues,
+      required this.onChanged});
 
-// trailing: IconButton(
-//             icon: Icon(
-//               // isSelected
-//               //     ? Icons.radio_button_checked
-//               //     : Icons.radio_button_unchecked,
-//               // color: isSelected ? Colors.deepPurple : Colors.grey,
-//               _selectedCard == widget
-//                   ? Icons.radio_button_checked
-//                   : Icons.radio_button_unchecked,
-//               color: _selectedCard == widget ? Colors.deepPurple : Colors.grey,
-//             ),
-//             onPressed: () {
-//               setState(() {
-//                 // isSelected = !isSelected;
-//                 // _selectedCard = widget;
-//                 if (_selectedCard != widget) {
-//                   _selectedCard = widget;
-//                 } else {
-//                   _selectedCard = null; // Clear selection when tapping again
-//                 }
-//               });
-//             },
-//           ),
+  ButtonValuesEnum value;
+  ButtonValuesEnum? selectedButtonValues;
+  Function(ButtonValuesEnum?)? onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Radio<ButtonValuesEnum>(
+      value: value,
+      groupValue: selectedButtonValues,
+      onChanged: onChanged,
+      activeColor: Colors.deepPurple,
+    );
+  }
+}
