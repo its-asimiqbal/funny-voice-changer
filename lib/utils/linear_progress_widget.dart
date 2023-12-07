@@ -2,15 +2,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/screens/onboarding_screen.dart';
 
-class SplashServices extends StatefulWidget {
-  const SplashServices({super.key});
+class LinearProgressWidget extends StatefulWidget {
+  const LinearProgressWidget({super.key});
 
   @override
-  State<SplashServices> createState() => _SplashServicesState();
+  State<LinearProgressWidget> createState() => _LinearProgressWidgetState();
 }
 
-class _SplashServicesState extends State<SplashServices> {
-  double progress = 0.0;
+class _LinearProgressWidgetState extends State<LinearProgressWidget> {
+
+  //... Here is the logic for the Determinate Linear Progress Indicator
+
+  double _initialValue = 0.0;
 
   @override
   void initState() {
@@ -18,8 +21,8 @@ class _SplashServicesState extends State<SplashServices> {
 
     Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        progress += 0.02;
-        if (progress >= 1) {
+        _initialValue += 0.03;
+        if (_initialValue >= 1) {
           timer.cancel();
           Navigator.pushReplacement(
             context,
@@ -33,7 +36,7 @@ class _SplashServicesState extends State<SplashServices> {
   @override
   Widget build(BuildContext context) {
     return LinearProgressIndicator(
-      value: progress,
+      value: _initialValue,
       backgroundColor: Colors.white,
       valueColor: const AlwaysStoppedAnimation(Colors.blue),
     );
