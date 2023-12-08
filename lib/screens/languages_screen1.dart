@@ -3,14 +3,14 @@ import 'package:funny_voice_changer/utils/my_card.dart';
 
 import 'onboard_screen.dart';
 
-class LanguagesScreen extends StatefulWidget {
-  const LanguagesScreen({super.key});
+class LanguagesScreen1 extends StatefulWidget {
+  const LanguagesScreen1({super.key});
 
   @override
-  State<LanguagesScreen> createState() => _LanguagesScreenState();
+  State<LanguagesScreen1> createState() => _LanguagesScreenState();
 }
 
-class _LanguagesScreenState extends State<LanguagesScreen> {
+class _LanguagesScreenState extends State<LanguagesScreen1> {
   bool isSelected = false;
   ButtonValuesEnum? _buttonValues;
 

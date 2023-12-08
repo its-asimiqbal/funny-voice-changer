@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/screens/languages_screen.dart';
+import 'package:funny_voice_changer/screens/languages_screen1.dart';
 
 class LinearProgressWidget extends StatefulWidget {
   const LinearProgressWidget({super.key});
@@ -26,7 +26,7 @@ class _LinearProgressWidgetState extends State<LinearProgressWidget> {
           timer.cancel();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const LanguagesScreen()),
+            MaterialPageRoute(builder: (context) => const LanguagesScreen1()),
           );
         }
       });

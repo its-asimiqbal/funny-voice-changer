@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splash-screen/splash_screen.dart';
+import 'package:funny_voice_changer/splash-screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
