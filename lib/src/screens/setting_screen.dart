@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/screens/language_screen2.dart';
-import 'package:funny_voice_changer/utils/demo.dart';
+import 'package:funny_voice_changer/src/screens/language_screen2.dart';
+import 'package:funny_voice_changer/src/utils/demo.dart';
 import 'privacy_policy_screen.dart';
 
 class SettingScreen extends StatefulWidget {
-  const SettingScreen({super.key});
+  const SettingScreen({
+    super.key,
+  });
 
   @override
   State<SettingScreen> createState() => _SettingScreenState();
@@ -135,7 +139,34 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              showModalBottomSheet(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                context: context,
+                builder: (context) => const SizedBox(
+                  height: 80,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Getting app info...',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
             child: const Card(
               child: ListTile(
                 minLeadingWidth: 0.0,

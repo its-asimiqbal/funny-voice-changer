@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/utils/linear_progress_widget.dart';
+import 'package:funny_voice_changer/src/utils/linear_progress_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

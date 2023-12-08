@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/screens/setting_screen.dart';
-import 'package:funny_voice_changer/utils/my_card.dart';
+import 'package:funny_voice_changer/src/screens/setting_screen.dart';
+import 'package:funny_voice_changer/src/utils/my_card.dart';
 
 import 'onboard_screen.dart';
 

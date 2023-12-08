@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/screens/languages_screen1.dart';
+import 'package:funny_voice_changer/src/screens/languages_screen1.dart';
 
 class LinearProgressWidget extends StatefulWidget {
   const LinearProgressWidget({super.key});
@@ -21,7 +21,7 @@ class _LinearProgressWidgetState extends State<LinearProgressWidget> {
 
     Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        _initialValue += 0.03;
+        _initialValue += 0.02;
         if (_initialValue >= 1) {
           timer.cancel();
           Navigator.pushReplacement(
