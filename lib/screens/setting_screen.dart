@@ -1,11 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/screens/language_screen2.dart';
-import 'package:funny_voice_changer/screens/languages_screen1.dart';
 import 'package:funny_voice_changer/utils/demo.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import 'privacy_policy_screen.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -30,7 +25,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black,
+        foregroundColor: const Color.fromRGBO(0, 0, 0, 1),
         elevation: 0,
         title: const Text('Setting'),
         actions: [
