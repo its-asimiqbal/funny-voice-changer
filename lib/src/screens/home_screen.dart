@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'record_audio_screen.dart';
 import 'setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -50,48 +51,58 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  height: 180,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(15),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromARGB(255, 88, 17, 211),
-                        Colors.deepPurpleAccent,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RecordAudioScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 170,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 88, 17, 211),
+                          Colors.deepPurpleAccent,
+                        ],
+                      ),
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.music_off,
+                          color: Colors.white,
+                          size: 35,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Record & Change \n Voice',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.music_off,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Record & Change \n Voice',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
                 const SizedBox(
                   height: 6,
                 ),
                 Container(
-                  height: 80,
+                  height: 90,
                   width: 160,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
