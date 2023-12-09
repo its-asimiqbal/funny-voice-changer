@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/utils/recorder_button.dart';
+import 'package:funny_voice_changer/src/utils/recorder/recorder_button.dart';
 
 class RecordAudioScreen extends StatefulWidget {
   const RecordAudioScreen({super.key});
@@ -53,35 +53,4 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
 }
 
 
-  // GestureDetector(
-            //   onTap: () async{
-            //   },
-            //   child: Align(
-            //     // Second
-            //     alignment: Alignment.bottomCenter,
-            //     child: Padding(
-            //       padding: const EdgeInsets.only(bottom: 40),
-            //       child: Stack(
-            //         alignment: Alignment.center,
-            //         children: [
-            //           Container(
-            //             height: 50,
-            //             width: 50,
-            //             decoration: BoxDecoration(
-            //               borderRadius: BorderRadius.circular(50),
-            //               color: Colors.red,
-            //             ),
-            //           ),
-            //           Container(
-            //             height: 30,
-            //             width: 30,
-            //             decoration: BoxDecoration(
-            //               borderRadius: BorderRadius.circular(50),
-            //               color: Colors.white,
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
+  
