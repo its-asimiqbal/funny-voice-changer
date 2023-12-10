@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
+import 'package:funny_voice_changer/src/utils/recorder/audio_player.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class RecorderButton extends StatefulWidget {
@@ -84,16 +85,17 @@ class _RecorderButtonState extends State<RecorderButton> {
           padding: const EdgeInsets.only(bottom: 40),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // IconButton(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.restore,
-              //     color: Colors.white,
-              //   ),
-              //   iconSize: 30,
-              // ),
+              IconButton(
+                onPressed: ()  {
+                  print('Reset button clicked');
+                },
+                icon: const Icon(
+                  Icons.restore,
+                  color: Colors.white,
+                ),
+                iconSize: 30,
+              ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: CircleAvatar(
@@ -118,14 +120,24 @@ class _RecorderButtonState extends State<RecorderButton> {
                   ),
                 ),
               ),
-              // IconButton(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.start,
-              //     color: Colors.white,
-              //   ),
-              //   iconSize: 30,
-              // ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AudioPlayerScreen(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.start,
+                    color: Colors.white,
+                  ),
+                  iconSize: 30,
+                ),
+              ),
             ],
           ),
         ),
