@@ -1,4 +1,4 @@
-# Funny-Voice-Changer
+# Funny-Voice-Changer-App
 
 A new Flutter project.
 
