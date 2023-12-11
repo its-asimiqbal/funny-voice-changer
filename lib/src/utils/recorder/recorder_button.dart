@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
-import 'package:funny_voice_changer/src/utils/recorder/audio_player.dart';
+import 'package:funny_voice_changer/src/screens/audio_player_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class RecorderButton extends StatefulWidget {
@@ -87,7 +87,7 @@ class _RecorderButtonState extends State<RecorderButton> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                onPressed: ()  {
+                onPressed: () {
                   print('Reset button clicked');
                 },
                 icon: const Icon(
@@ -112,7 +112,7 @@ class _RecorderButtonState extends State<RecorderButton> {
                         setState(() {});
                       },
                       icon: Icon(
-                        recorder.isRecording ? Icons.circle : Icons.mic,
+                        recorder.isRecording ? Icons.stop : Icons.mic,
                         color: Colors.white,
                       ),
                       iconSize: 35,
@@ -127,7 +127,7 @@ class _RecorderButtonState extends State<RecorderButton> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AudioPlayerScreen(),
+                        builder: (context) => const AudioPlayerScreenMain(),
                       ),
                     );
                   },

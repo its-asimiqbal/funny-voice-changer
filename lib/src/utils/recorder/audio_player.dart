@@ -14,31 +14,31 @@
 //   Duration duration = Duration.zero;
 //   Duration position = Duration.zero;
 
-//   @override
-//   void initState() {
-//     super.initState();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-//     // Listen to states: playing, paused, stopped
-//     audioPlayer.onPlayerStateChanged.listen((state) {
-//       setState(() {
-//         isPlaying = state == PlayerState.playing;
-//       });
-//      });
+  //   // Listen to states: playing, paused, stopped
+  //   audioPlayer.onPlayerStateChanged.listen((state) {
+  //     setState(() {
+  //       isPlaying = state == PlayerState.playing;
+  //     });
+  //    });
 
-//      // Listen to audio duration 
-//     audioPlayer.onDurationChanged.listen((newDuration) {
-//       setState(() {
-//         duration = newDuration;
-//       });
-//      });
+  //    // Listen to audio duration 
+  //   audioPlayer.onDurationChanged.listen((newDuration) {
+  //     setState(() {
+  //       duration = newDuration;
+  //     });
+  //    });
 
-//       // Listen to audio postion  
-//     audioPlayer.onPositionChanged.listen((newPosition) {
-//       setState(() {
-//         position = newPosition;
-//       });
-//      });
-//   }
+  //     // Listen to audio postion  
+  //   audioPlayer.onPositionChanged.listen((newPosition) {
+  //     setState(() {
+  //       position = newPosition;
+  //     });
+  //    });
+  // }
 
 //   @override
 //   Widget build(BuildContext context) {
