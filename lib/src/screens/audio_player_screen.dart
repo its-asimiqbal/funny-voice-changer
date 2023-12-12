@@ -2,7 +2,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class AudioPlayerScreenMain extends StatefulWidget {
-  const AudioPlayerScreenMain({super.key});
+  const AudioPlayerScreenMain({super.key, required this.recordedAudioPath});
+
+  final String? recordedAudioPath;
 
   @override
   State<AudioPlayerScreenMain> createState() => _AudioPlayerScreenMainState();
@@ -43,13 +45,16 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
 
   @override
   Widget build(BuildContext context) {
+    final audioSource = widget.recordedAudioPath;
     return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             const Text(
               'Audio Player',
               style: TextStyle(
@@ -64,7 +69,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
               onChanged: (value) async {
                 final position = Duration(seconds: value.toInt());
                 await audioPlayer.seek(position);
-      
+
                 // // optional
                 await audioPlayer.resume();
               },
@@ -82,14 +87,15 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
             CircleAvatar(
               radius: 35,
               child: IconButton(
-                onPressed: ()  {
+                onPressed: () {
                   if (isPlaying) {
-                     audioPlayer.pause();
+                    audioPlayer.pause();
                   } else {
                     // String url = 'https://www.chosic.com/download-audio/29064/';
                     // var url1= 'assets/song.mp3' as Source;
                     // var url = Uri.parse('https://www.chosic.com/download-audio/29064/');
-                     audioPlayer.play(AssetSource('song.mp3'));
+                    //  audioPlayer.play(AssetSource('song.mp3'));
+                  audioPlayer.play(DeviceFileSource(audioSource!));
                   }
                 },
                 icon: Icon(

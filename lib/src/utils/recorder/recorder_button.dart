@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:funny_voice_changer/src/screens/audio_player_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:path_provider/path_provider.dart';
 
 class RecorderButton extends StatefulWidget {
   const RecorderButton({super.key});
@@ -15,16 +16,33 @@ class _RecorderButtonState extends State<RecorderButton> {
   int recordingCounter = 0;
   final recorder = FlutterSoundRecorder();
   bool isRecoderReady = false;
+  String? recordedPath;
 
   Future record() async {
     if (!isRecoderReady) return;
-    await recorder.startRecorder(toFile: 'audio');
+
+     // Get the chosen storage directory
+  final directory = await getApplicationDocumentsDirectory();
+  // Create a unique filename
+  final filename = 'recording_${recordingCounter++}.aac';
+   // Combine directory and filename to form the full path
+  final filePath = '${directory.path}/$filename';
+  // Start recording using the full path
+  await recorder.startRecorder(toFile: filePath); 
+   // Update recordedPath variable
+  recordedPath = filePath;
+
+
+    // await recorder.startRecorder(toFile: 'audio');
   }
+
+  
 
   Future stop() async {
     if (!isRecoderReady) return;
 
     final path = await recorder.stopRecorder();
+    recordedPath = path; // Store the path in the variable
     final audioFile = File(path!);
 
     print('Recorded audio : $audioFile');
@@ -127,7 +145,7 @@ class _RecorderButtonState extends State<RecorderButton> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AudioPlayerScreenMain(),
+                        builder: (context) =>  AudioPlayerScreenMain( recordedAudioPath: recordedPath),
                       ),
                     );
                   },
