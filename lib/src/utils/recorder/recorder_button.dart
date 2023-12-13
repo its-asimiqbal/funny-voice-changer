@@ -21,22 +21,19 @@ class _RecorderButtonState extends State<RecorderButton> {
   Future record() async {
     if (!isRecoderReady) return;
 
-     // Get the chosen storage directory
-  final directory = await getApplicationDocumentsDirectory();
-  // Create a unique filename
-  final filename = 'recording_${recordingCounter++}.aac';
-   // Combine directory and filename to form the full path
-  final filePath = '${directory.path}/$filename';
-  // Start recording using the full path
-  await recorder.startRecorder(toFile: filePath); 
-   // Update recordedPath variable
-  recordedPath = filePath;
-
+    // Get the chosen storage directory
+    final directory = await getApplicationDocumentsDirectory();
+    // Create a unique filename
+    final filename = 'recording_${recordingCounter++}.aac';
+    // Combine directory and filename to form the full path
+    final filePath = '${directory.path}/$filename';
+    // Start recording using the full path
+    await recorder.startRecorder(toFile: filePath);
+    // Update recordedPath variable
+    recordedPath = filePath;
 
     // await recorder.startRecorder(toFile: 'audio');
   }
-
-  
 
   Future stop() async {
     if (!isRecoderReady) return;
@@ -145,7 +142,9 @@ class _RecorderButtonState extends State<RecorderButton> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>  AudioPlayerScreenMain( recordedAudioPath: recordedPath),
+                        builder: (context) => AudioPlayerScreenMain(
+                          recordedAudioPath: recordedPath,
+                        ),
                       ),
                     );
                   },

@@ -14,7 +14,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
   final audioPlayer = AudioPlayer();
 
   bool isPlaying = false;
-  Duration duartion = Duration.zero;
+  Duration duration = Duration.zero;
   Duration position = Duration.zero;
 
   @override
@@ -31,7 +31,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
     // Listen to audio duration
     audioPlayer.onDurationChanged.listen((newDuration) {
       setState(() {
-        duartion = newDuration;
+        duration = newDuration;
       });
     });
 
@@ -47,6 +47,18 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
   Widget build(BuildContext context) {
     final audioSource = widget.recordedAudioPath;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Audio Player',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -55,16 +67,9 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              'Audio Player',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             Slider(
               min: 0,
-              max: duartion.inSeconds.toDouble(),
+              max: duration.inSeconds.toDouble(),
               value: position.inSeconds.toDouble(),
               onChanged: (value) async {
                 final position = Duration(seconds: value.toInt());
@@ -79,8 +84,10 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(formatTime(position)),
-                  Text(formatTime(duartion - position)),
+                  // Text(formatTime(position)),
+                  Text(position.toString().split('.')[0]),
+                  // Text(formatTime(duartion - position)),
+                  Text(duration.toString().split('.')[0]),
                 ],
               ),
             ),
@@ -95,7 +102,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
                     // var url1= 'assets/song.mp3' as Source;
                     // var url = Uri.parse('https://www.chosic.com/download-audio/29064/');
                     //  audioPlayer.play(AssetSource('song.mp3'));
-                  audioPlayer.play(DeviceFileSource(audioSource!));
+                    audioPlayer.play(DeviceFileSource(audioSource!));
                   }
                 },
                 icon: Icon(
