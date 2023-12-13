@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funny_voice_changer/src/screens/audio_from_device_screen.dart';
 
 import 'record_audio_screen.dart';
 import 'setting_screen.dart';
@@ -145,40 +146,50 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  height: 120,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(15),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromARGB(255, 237, 218, 42),
-                        Colors.deepOrange,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AudioFromDeviceScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 120,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 237, 218, 42),
+                          Colors.deepOrange,
+                        ],
+                      ),
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.file_copy,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Audio from device',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.file_copy,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Audio from device',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
                 const SizedBox(
