@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/src/screens/audio_from_device_screen.dart';
+import 'package:funny_voice_changer/src/screens/text_to_voice_screen.dart';
 
 import 'record_audio_screen.dart';
 import 'setting_screen.dart';
@@ -102,40 +103,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 6,
                 ),
-                Container(
-                  height: 90,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(15),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromARGB(255, 24, 3, 60),
-                        Colors.deepPurpleAccent,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TextToVoiceScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 90,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 24, 3, 60),
+                          Colors.deepPurpleAccent,
+                        ],
+                      ),
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.message,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Text to Voice',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.message,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Text to Voice',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

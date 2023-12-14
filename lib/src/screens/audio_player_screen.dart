@@ -71,6 +71,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
               min: 0,
               max: duration.inSeconds.toDouble(),
               value: position.inSeconds.toDouble(),
+              activeColor: Colors.deepPurple,
               onChanged: (value) async {
                 final position = Duration(seconds: value.toInt());
                 await audioPlayer.seek(position);
@@ -93,6 +94,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
             ),
             CircleAvatar(
               radius: 35,
+              backgroundColor: Colors.deepPurple,
               child: IconButton(
                 onPressed: () {
                   if (isPlaying) {
@@ -106,7 +108,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
                   }
                 },
                 icon: Icon(
-                  isPlaying ? Icons.pause : Icons.play_arrow,
+                  isPlaying ? Icons.pause : Icons.play_arrow,color: Colors.white,
                 ),
                 iconSize: 50,
               ),

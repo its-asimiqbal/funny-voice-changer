@@ -34,12 +34,13 @@ dependencies:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
   flutter_sound: ^9.2.13
+  flutter_tts: ^3.8.5
   fluttertoast: null
   intl: ^0.19.0
   just_audio: ^0.9.36
-  on_audio_query: ^2.9.0
+  on_audio_query: 
   path_provider: null
-  permission_handler: 11.0.1
+  permission_handler: 
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.1
 

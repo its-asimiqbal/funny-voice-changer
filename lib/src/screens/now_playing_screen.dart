@@ -106,6 +106,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                         min: 0,
                         value: position.inSeconds.toDouble(),
                         max: duration.inSeconds.toDouble(),
+                        activeColor: Colors.deepPurple,
                         onChanged: (value) {
                           setState(() {
                             Duration duration =
@@ -150,6 +151,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                         children: [
                           CircleAvatar(
                             radius: 30,
+                            backgroundColor: Colors.deepPurple,
                             child: IconButton(
                               onPressed: () {
                                 setState(
