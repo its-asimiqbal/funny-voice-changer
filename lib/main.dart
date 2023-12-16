@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/screens/home_screen.dart';
+import 'package:funny_voice_changer/src/routes/route_generator.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: RoutesName.homeScreen,
+      onGenerateRoute: RouteGenerator.generateRoute,
+      // routes:{
+        
+      // },
     );
   }
 }

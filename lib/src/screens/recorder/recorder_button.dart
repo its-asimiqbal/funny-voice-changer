@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
-import 'package:funny_voice_changer/src/screens/audio_player_screen.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
+import 'package:funny_voice_changer/src/screens/audio_player_main_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -139,14 +140,10 @@ class _RecorderButtonState extends State<RecorderButton> {
                 alignment: Alignment.centerRight,
                 child: IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AudioPlayerScreenMain(
-                          recordedAudioPath: recordedPath,
-                        ),
-                      ),
-                    );
+                    print('PATHHHHHAHAHHAHA - $recordedPath');
+
+                    Navigator.pushNamed(
+                        context, RoutesName.audioPlayerMainScreen);
                   },
                   icon: const Icon(
                     Icons.start,

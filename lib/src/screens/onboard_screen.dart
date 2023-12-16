@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/src/onboard-screens/screen1.dart';
 import 'package:funny_voice_changer/src/onboard-screens/screen2.dart';
 import 'package:funny_voice_changer/src/onboard-screens/screen3.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'home_screen.dart';
@@ -59,12 +60,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   onLastPage
                       ? GestureDetector(
                           onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
-                              ),
-                            );
+                            Navigator.pushReplacementNamed(
+                                context, RoutesName.homeScreen);
                           },
                           child: const Text(
                             'GET STARTED',

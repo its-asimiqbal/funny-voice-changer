@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 import 'package:funny_voice_changer/src/screens/now_playing_screen.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -123,15 +124,16 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
                 title: Text(song.displayName),
                 subtitle: Text(formattedDuration),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NowPlayingScreen(
-                        audioModel: snapshot.data![index],
-                        audioPlayer: audioPlayer,
-                      ),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => NowPlayingScreen(
+                  //       audioModel: snapshot.data![index],
+                  //       audioPlayer: audioPlayer,
+                  //     ),
+                  //   ),
+                  // );
+                  Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen);
                 },
               );
             },

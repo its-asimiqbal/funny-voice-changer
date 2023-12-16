@@ -1,7 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/screens/language_screen2.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 import 'package:funny_voice_changer/src/utils/demo.dart';
 import 'privacy_policy_screen.dart';
 
@@ -72,12 +71,8 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LanguagesScreen2(),
-                ),
-              );
+              Navigator.pushNamed(
+                  context, RoutesName.languagesScreen2);
             },
             child: const Card(
               child: ListTile(
@@ -150,6 +145,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 context: context,
                 builder: (context) => const SizedBox(
                   height: 80,
+                  width: double.infinity,
                   child: Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Column(

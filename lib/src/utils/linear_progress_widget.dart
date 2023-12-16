@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/screens/languages_screen1.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 
 class LinearProgressWidget extends StatefulWidget {
   const LinearProgressWidget({super.key});
@@ -10,27 +10,40 @@ class LinearProgressWidget extends StatefulWidget {
 }
 
 class _LinearProgressWidgetState extends State<LinearProgressWidget> {
-
-  //... Here is the logic for the Determinate Linear Progress Indicator
-
   double _initialValue = 0.0;
+
+  Timer? _timer;
 
   @override
   void initState() {
     super.initState();
+    _startNavigation();
+  }
 
-    Timer.periodic(const Duration(milliseconds: 100), (timer) {
+  void _startNavigation() {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        _initialValue += 0.02;
-        if (_initialValue >= 1) {
-          timer.cancel();
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const LanguagesScreen1()),
-          );
-        }
+        _initialValue +=
+            0.02; // Adjust this increment based on your requirements
       });
+
+      if (_initialValue >= 1) {
+        timer.cancel();
+        _navigateToNextScreen();
+      }
     });
+  }
+
+  void _navigateToNextScreen() {
+    Future.delayed(Duration.zero, () {
+      Navigator.pushNamed(context, RoutesName.languagesScreen1);
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -38,7 +51,9 @@ class _LinearProgressWidgetState extends State<LinearProgressWidget> {
     return LinearProgressIndicator(
       value: _initialValue,
       backgroundColor: Colors.white,
-      valueColor: const AlwaysStoppedAnimation(Colors.blue),
+      valueColor: const AlwaysStoppedAnimation(
+        Colors.blue,
+      ),
     );
   }
 }

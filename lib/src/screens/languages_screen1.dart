@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 import 'package:funny_voice_changer/src/utils/my_card.dart';
-
-import 'onboard_screen.dart';
 
 class LanguagesScreen1 extends StatefulWidget {
   const LanguagesScreen1({super.key});
@@ -18,20 +17,24 @@ class _LanguagesScreenState extends State<LanguagesScreen1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Language'),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Language',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const OnBoardScreen(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, RoutesName.onBoardScreen);
             },
-            icon: const Icon(Icons.check),
+            icon: const Icon(
+              Icons.check,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

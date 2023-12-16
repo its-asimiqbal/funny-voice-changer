@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/screens/audio_from_device_screen.dart';
-import 'package:funny_voice_changer/src/screens/text_to_voice_screen.dart';
-
-import 'record_audio_screen.dart';
-import 'setting_screen.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           'Voice Changer',
           style: TextStyle(
@@ -29,12 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingScreen(),
-                ),
-              );
+              Navigator.pushNamed(context, RoutesName.settingScreen);
             },
             icon: const Icon(
               Icons.settings,
@@ -55,12 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RecordAudioScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, RoutesName.recordAudioScreen);
                   },
                   child: Container(
                     height: 170,
@@ -105,12 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TextToVoiceScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, RoutesName.textToVoiceScreen);
                   },
                   child: Container(
                     height: 90,
@@ -159,12 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AudioFromDeviceScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, RoutesName.audioFromDeviceScreen);
                   },
                   child: Container(
                     height: 120,

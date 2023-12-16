@@ -1,16 +1,16 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-class AudioPlayerScreenMain extends StatefulWidget {
-  const AudioPlayerScreenMain({super.key, required this.recordedAudioPath});
+class AudioPlayerMainScreen extends StatefulWidget {
+  AudioPlayerMainScreen({super.key});
 
-  final String? recordedAudioPath;
+ 
 
   @override
-  State<AudioPlayerScreenMain> createState() => _AudioPlayerScreenMainState();
+  State<AudioPlayerMainScreen> createState() => _AudioPlayerMainScreenState();
 }
 
-class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
+class _AudioPlayerMainScreenState extends State<AudioPlayerMainScreen> {
   final audioPlayer = AudioPlayer();
 
   bool isPlaying = false;
@@ -45,7 +45,17 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
 
   @override
   Widget build(BuildContext context) {
-    final audioSource = widget.recordedAudioPath;
+// final String? audioPath = ModalRoute.of(context)!.settings.arguments as String?;
+// final recordedAudioPath = ModalRoute.of(context)!.settings.arguments['recordedAudioPath'] as String;
+    // final Map<String, String>? arguments =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
+    // if (arguments != null) {
+    //   final recordedAudioPath = arguments['recordedAudioPath'] as String;
+    //   // ... Use recordedAudioPath ...
+    // }
+    final  path = ModalRoute.of(context)?.settings.arguments;
+    print('PATHHHHHHHHHH - $path');
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -85,9 +95,7 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Text(formatTime(position)),
                   Text(position.toString().split('.')[0]),
-                  // Text(formatTime(duartion - position)),
                   Text(duration.toString().split('.')[0]),
                 ],
               ),
@@ -100,15 +108,13 @@ class _AudioPlayerScreenMainState extends State<AudioPlayerScreenMain> {
                   if (isPlaying) {
                     audioPlayer.pause();
                   } else {
-                    // String url = 'https://www.chosic.com/download-audio/29064/';
-                    // var url1= 'assets/song.mp3' as Source;
-                    // var url = Uri.parse('https://www.chosic.com/download-audio/29064/');
-                    //  audioPlayer.play(AssetSource('song.mp3'));
-                    audioPlayer.play(DeviceFileSource(audioSource!));
+                    // print(path);
+                    audioPlayer.play(DeviceFileSource(path.toString()));
                   }
                 },
                 icon: Icon(
-                  isPlaying ? Icons.pause : Icons.play_arrow,color: Colors.white,
+                  isPlaying ? Icons.pause : Icons.play_arrow,
+                  color: Colors.white,
                 ),
                 iconSize: 50,
               ),
@@ -131,4 +137,17 @@ String formatTime(Duration duration) {
     minutes,
     seconds,
   ].join(':');
+}
+
+
+class TestScreen extends StatelessWidget {
+  static const String routeName = '/testScreen';
+  const TestScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final data = ModalRoute.of(context)!.settings.arguments;
+    print(data.toString()+'asdasdasdasdasd');
+    return const Placeholder();
+  }
 }

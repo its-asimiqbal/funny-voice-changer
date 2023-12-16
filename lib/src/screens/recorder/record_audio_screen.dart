@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/utils/recorder/recorder_button.dart';
+import 'package:funny_voice_changer/src/screens/recorder/recorder_button.dart';
 
 class RecordAudioScreen extends StatefulWidget {
   const RecordAudioScreen({super.key});

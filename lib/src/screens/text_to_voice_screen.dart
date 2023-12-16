@@ -95,6 +95,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:funny_voice_changer/src/routes/routes_name.dart';
+import 'package:funny_voice_changer/src/screens/audio_player_main_screen.dart';
 
 class TextToVoiceScreen extends StatefulWidget {
   const TextToVoiceScreen({super.key});
@@ -135,7 +137,8 @@ class _TextToVoiceScreenState extends State<TextToVoiceScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              textToSpeech(textEditingController.text);
+              // textToSpeech(textEditingController.text);
+              Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen);
             },
             icon: const Icon(
               Icons.check,
