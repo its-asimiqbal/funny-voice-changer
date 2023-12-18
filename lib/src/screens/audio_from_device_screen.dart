@@ -104,7 +104,13 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
           }
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(
-              child: Text('No audio files...', style: TextStyle(fontSize: 20, color: Colors.deepPurple, fontWeight: FontWeight.w500),),
+              child: Text(
+                'No audio files...',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.deepPurple,
+                    fontWeight: FontWeight.w500),
+              ),
             );
           }
 
@@ -133,7 +139,11 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
                   //     ),
                   //   ),
                   // );
-                  Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen);
+                  // Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen,
+                  //     arguments: {
+                  //       'audioModel': snapshot.data![index],
+                  //       'audioPlayer': audioPlayer,
+                  //     });
                 },
               );
             },

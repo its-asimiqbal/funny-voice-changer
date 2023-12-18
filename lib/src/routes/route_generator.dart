@@ -5,7 +5,8 @@ import 'package:funny_voice_changer/src/screens/audio_player_main_screen.dart';
 import 'package:funny_voice_changer/src/screens/home_screen.dart';
 import 'package:funny_voice_changer/src/screens/language_screen2.dart';
 import 'package:funny_voice_changer/src/screens/languages_screen1.dart';
-import 'package:funny_voice_changer/src/screens/onboard_screen.dart';
+import 'package:funny_voice_changer/src/screens/multi_audio_player_screen.dart';
+import 'package:funny_voice_changer/src/screens/onboard-screen/onboard_screen.dart';
 import 'package:funny_voice_changer/src/screens/recorder/record_audio_screen.dart';
 import 'package:funny_voice_changer/src/screens/setting_screen.dart';
 import 'package:funny_voice_changer/src/screens/text_to_voice_screen.dart';
@@ -49,17 +50,27 @@ class RouteGenerator {
           builder: (context) => const AudioFromDeviceScreen(),
         );
       case RoutesName.audioPlayerMainScreen:
+        print('Navigating to audioPlayerMainScreen');
         return MaterialPageRoute(
-          builder: (context) => AudioPlayerMainScreen(),
+          builder: (context) => AudioPlayerMainScreen(
+            // text: settings.arguments,
+            recordedPath: settings.arguments as Map,
+            textToSpeech: settings.arguments as Map,
+            text: settings.arguments as Map,
+          ),
         );
       case RoutesName.languagesScreen2:
         return MaterialPageRoute(
           builder: (_) => const LanguagesScreen2(),
         );
-         case RoutesName.testScreen:
-        return MaterialPageRoute(
-          builder: (_) => const TestScreen(),
-        );
+      // case RoutesName.testScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const TestScreen(),
+      //   );
+        // case RoutesName.multiScreen:
+        // return MaterialPageRoute(
+        //   builder: (_) =>  MultiAudioPlayerScreen(),
+        // );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

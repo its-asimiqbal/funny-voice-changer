@@ -4,11 +4,11 @@ import 'package:just_audio/just_audio.dart';
 import 'dart:developer';
 
 class NowPlayingScreen extends StatefulWidget {
-  const NowPlayingScreen(
+  NowPlayingScreen(
       {super.key, required this.audioModel, required this.audioPlayer});
 
-  final SongModel audioModel;
-  final AudioPlayer audioPlayer;
+  SongModel audioModel;
+  dynamic audioPlayer;
 
   @override
   State<NowPlayingScreen> createState() => _NowPlayingScreenState();
@@ -132,7 +132,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                             //     size: 40,
                             //   ),
                             // ),
-                      
+
                             Text(
                               duration.toString().split('.')[0],
                             ),

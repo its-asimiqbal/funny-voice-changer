@@ -10,4 +10,5 @@ class RoutesName {
   static const String audioFromDeviceScreen = 'audio_from_device_screen';
   static const String audioPlayerMainScreen = 'audio_player_main_screen';
   static const String testScreen = 'test_screen';
+  static const String multiScreen = 'multi_screen';
 }
