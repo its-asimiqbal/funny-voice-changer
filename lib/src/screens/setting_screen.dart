@@ -71,8 +71,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(
-                  context, RoutesName.languagesScreen2);
+              Navigator.pushNamed(context, RoutesName.languagesScreen2);
             },
             child: const Card(
               child: ListTile(
@@ -184,50 +183,3 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 }
-
-
-//
-
-// showModalBottomSheet(
-//                 context: context,
-//                 builder: (context) {
-//                   return SizedBox(
-//                     height: 200,
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         const Text(
-//                           'Update Available!',
-//                           style: TextStyle(
-//                               fontSize: 18, fontWeight: FontWeight.bold),
-//                         ),
-//                         const SizedBox(height: 20),
-//                         // TextButton(
-//                         //   onPressed: () {
-//                         //     launchUrl(
-//                         //       Uri.parse(
-//                         //           'https://play.google.com/store/apps/details?id=com.funny.voicechanger.free.voiceeditor.voiceeffects.soundeffects'),
-//                         //     );
-//                         //   },
-//                         //   child: const Text('Download Update'),
-//                         // ),
-//                         ElevatedButton(
-//                           onPressed: () async {
-//                             final uri = Uri.parse(
-//                               'https://play.google.com/store/apps/details?id=com.funny.voicechanger.free.voiceeditor.voiceeffects.soundeffects',
-//                             );
-
-//                             if (await canLaunchUrl(uri)) {
-//                               await launchUrl(uri);
-//                             } else {
-//                               // Handle the case where the URL cannot be launched
-//                               print('Could not launch the URL');
-//                             }
-//                           },
-//                           child: const Text('Open URL'),
-//                         ),
-//                       ],
-//                     ),
-//                   );
-//                 },
-//               );

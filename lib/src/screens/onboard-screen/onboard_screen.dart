@@ -45,12 +45,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                     count: 3,
                     effect: const SlideEffect(
                       spacing: 5.0,
-                      // radius: 4.0,
                       dotWidth: 10.0,
                       dotHeight: 10.0,
-                      // paintStyle: PaintingStyle.stroke,
-                      // strokeWidth: 1.5,
-                      // dotColor: Colors.grey,
                       activeDotColor: Colors.deepPurple,
                     ),
                   ),

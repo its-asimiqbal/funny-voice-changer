@@ -141,7 +141,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, RoutesName.audioFromDeviceScreen);
+                    Navigator.pushNamed(
+                        context, RoutesName.audioFromDeviceScreen);
                   },
                   child: Container(
                     height: 120,

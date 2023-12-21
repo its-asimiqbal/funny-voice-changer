@@ -4,7 +4,11 @@ enum ButtonValues { value1, value2, value3, value4, value5, value6, value7 }
 
 // ignore: must_be_immutable
 class MyCard extends StatefulWidget {
-  MyCard({super.key, required this.imagePath, required this.title, required this.newRadio});
+  MyCard(
+      {super.key,
+      required this.imagePath,
+      required this.title,
+      required this.newRadio});
 
   String imagePath;
   String title;
@@ -15,7 +19,6 @@ class MyCard extends StatefulWidget {
 }
 
 class _MyCardState extends State<MyCard> {
-
   @override
   void initState() {
     super.initState();

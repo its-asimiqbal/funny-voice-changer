@@ -73,36 +73,10 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
                 Center(
                   child: Column(
                     children: [
-                      // const CircleAvatar(
-                      //   radius: 100,
-                      //   child: Icon(
-                      //     Icons.music_note,
-                      //     size: 80,
-                      //   ),
-                      // ),
-                      // const SizedBox(
-                      //   height: 30,
-                      // ),
-                      // Text(
-                      //   widget.audioModel.displayName,
-                      //   style: const TextStyle(fontSize: 20),
-                      // ),
-                      // const SizedBox(
-                      //   height: 10,
-                      // ),
-                      // Text(
-                      //   widget.audioModel.displayNameWOExt,
-                      //   style: const TextStyle(fontSize: 20),
-                      // ),
-                      // const SizedBox(
-                      //   height: 10,
-                      // ),
                       Slider(
-                        // min: const Duration(microseconds: 0).inSeconds.toDouble(),
                         min: 0,
                         value: position.inSeconds.toDouble(),
                         max: duration.inSeconds.toDouble(),
@@ -116,7 +90,6 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                           });
                         },
                       ),
-
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
@@ -125,24 +98,9 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                             Text(
                               position.toString().split('.')[0],
                             ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: const Icon(
-                            //     Icons.skip_previous,
-                            //     size: 40,
-                            //   ),
-                            // ),
-
                             Text(
                               duration.toString().split('.')[0],
                             ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: const Icon(
-                            //     Icons.skip_next,
-                            //     size: 40,
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),

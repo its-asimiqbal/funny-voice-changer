@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:funny_voice_changer/src/routes/routes_name.dart';
-import 'package:funny_voice_changer/src/screens/audio_player_main_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -32,8 +31,6 @@ class _RecorderButtonState extends State<RecorderButton> {
     await recorder.startRecorder(toFile: filePath);
     // Update recordedPath variable
     recordedPath = filePath;
-
-    // await recorder.startRecorder(toFile: 'audio');
   }
 
   Future stop() async {
@@ -140,21 +137,20 @@ class _RecorderButtonState extends State<RecorderButton> {
                 alignment: Alignment.centerRight,
                 child: IconButton(
                   onPressed: () {
-                    // if (recordedPath != null &&
-                    //     File(recordedPath!).existsSync()) {
-                    //   print('Path Send - $recordedPath');
-                    //   Navigator.pushNamed(
-                    //     context,
-                    //     RoutesName.audioPlayerMainScreen,
-                    //     arguments: {
-                    //       'Path': 'Send',
-                    //       'audioPath': recordedPath,
-                    //     },
-                    //   );
-                    // } else {
-                    //   print('Invalid recorded path or file does not exist.');
-                    // }
-                    // Navigator.pushNamed(context, RoutesName.multiScreen);
+                    if (recordedPath != null &&
+                        File(recordedPath!).existsSync()) {
+                      print('Path Send - $recordedPath');
+                      Navigator.pushNamed(
+                        context,
+                        RoutesName.audioPlayerMainScreen,
+                        arguments: {
+                          'Path': 'Send',
+                          'audioPath': recordedPath,
+                        },
+                      );
+                    } else {
+                      print('Invalid recorded path or file does not exist.');
+                    }
                   },
                   icon: const Icon(
                     Icons.start,
@@ -170,57 +166,3 @@ class _RecorderButtonState extends State<RecorderButton> {
     );
   }
 }
-
-
-// Align(
-              //   alignment: Alignment.centerRight,
-              //   child: IconButton(
-              //     // onPressed: () {
-              //     //   print('Recorded Path - $recordedPath');
-
-              //     //   // Navigator.of(context).pushNamed(TestScreen.routeName,
-              //     //   //     arguments: 'hiiiiasidiasidasid');
-              //     //   // Navigator.pushNamed(context, RoutesName.testScreen,arguments: 'asdadadas');
-
-              //     //   Navigator.pushNamed(
-              //     //     context,
-              //     //     RoutesName.audioPlayerMainScreen,
-              //     //     arguments: recordedPath,
-              //     //   );
-              //     // },
-              //     onPressed: () {
-              //       print('Recorded Path - $recordedPath');
-
-              //       if (recordedPath != null &&
-              //           File(recordedPath!).existsSync()) {
-              //         Navigator.pushNamed(
-              //           context,
-              //           RoutesName.audioPlayerMainScreen,
-              //           arguments: recordedPath,
-              //         );
-              //       } else {
-              //         print('Invalid recorded path or file does not exist.');
-              //         // Handle the case where the recorded path is invalid or the file does not exist.
-              //       }
-              //     },
-
-              //     icon: const Icon(
-              //       Icons.start,
-              //       color: Colors.white,
-              //     ),
-              //     iconSize: 30,
-              //   ),
-              // ),
-
-
-
-
-
-               //  Navigator.pushNamed(
-                    //     context,
-                    //     RoutesName.audioPlayerMainScreen,
-                    //     arguments: {
-                    //       'Path' : 'Send',
-                    //       'audioPath' : recordedPath,
-                    //     },
-                    //   );

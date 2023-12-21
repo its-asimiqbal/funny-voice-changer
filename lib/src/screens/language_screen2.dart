@@ -13,10 +13,10 @@ class _LanguagesScreenState extends State<LanguagesScreen2> {
   ButtonValuesEnum? _buttonValues;
 
   @override
-void initState() {
-  super.initState();
-  print(Navigator.of(context).widget);
-}
+  void initState() {
+    super.initState();
+    print(Navigator.of(context).widget);
+  }
 
   @override
   Widget build(BuildContext context) {

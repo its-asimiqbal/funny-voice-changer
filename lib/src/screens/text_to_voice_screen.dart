@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:funny_voice_changer/src/routes/routes_name.dart';
 
 class TextToVoiceScreen extends StatefulWidget {
   const TextToVoiceScreen({super.key});
@@ -13,7 +12,7 @@ class _TextToVoiceScreenState extends State<TextToVoiceScreen> {
   final TextEditingController textEditingController = TextEditingController();
   final FlutterTts flutterTts = FlutterTts();
 
-  void textToSpeech(String text ) async {
+  void textToSpeech(String text) async {
     await flutterTts.speak(text);
   }
 
@@ -29,15 +28,15 @@ class _TextToVoiceScreenState extends State<TextToVoiceScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                RoutesName.audioPlayerMainScreen,
-                arguments: {
-                  'textController': textEditingController.text,
-                  'path' : textEditingController.text,
-                },
-              );
-              // textToSpeech(textEditingController.text);
+              // Navigator.pushNamed(
+              //   context,
+              //   RoutesName.audioPlayerMainScreen,
+              //   arguments: {
+              //     'textController': textEditingController.text,
+              //     'path': textEditingController.text,
+              //   },
+              // );
+              textToSpeech(textEditingController.text);
             },
             icon: const Icon(
               Icons.check,
@@ -82,25 +81,3 @@ class _TextToVoiceScreenState extends State<TextToVoiceScreen> {
     );
   }
 }
-
-
-
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // FlutterTts(); // Initialize the plugin
-  // }
-
-  // void textToSpeech(String text) async {
-  //   await flutterTts.setLanguage("en-US");
-  //   // You can uncomment these lines if you want to adjust volume and speech rate
-  //   // await flutterTts.setVolume(0.5);
-  //   // await flutterTts.setSpeechRate(0.5);
-
-  //   await flutterTts.setPitch(1.5);
-  //   await flutterTts.speak(text);
-  // }
-
-  // textToSpeech(textEditingController.text);
-              // Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen);

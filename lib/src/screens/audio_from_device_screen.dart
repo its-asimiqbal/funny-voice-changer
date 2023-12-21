@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:funny_voice_changer/src/routes/routes_name.dart';
-import 'package:funny_voice_changer/src/screens/now_playing_screen.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,8 +28,6 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
           ignoreCase: true,
         );
         setState(() {}); // Update UI after querying songs
-      } else {
-        // Show permission denied message
       }
     });
   }
@@ -139,11 +136,11 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
                   //     ),
                   //   ),
                   // );
-                  // Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen,
-                  //     arguments: {
-                  //       'audioModel': snapshot.data![index],
-                  //       'audioPlayer': audioPlayer,
-                  //     });
+                  Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen,
+                      arguments: {
+                        'audioModel': snapshot.data![index],
+                        'audioPlayer': audioPlayer,
+                      });
                 },
               );
             },

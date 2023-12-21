@@ -28,8 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audio_session: ^0.1.18
   audioplayers: ^5.2.1
-  # audioplayers: ^0.9.8+7
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -39,9 +39,9 @@ dependencies:
   fluttertoast: null
   intl: ^0.19.0
   just_audio: ^0.9.36
-  on_audio_query: 
+  on_audio_query: null
   path_provider: null
-  permission_handler: 
+  permission_handler: null
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.1
 

@@ -9,12 +9,10 @@ class RecordAudioScreen extends StatefulWidget {
 }
 
 class _RecordAudioScreenState extends State<RecordAudioScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      // backgroundColor: Colors.deepPurple,
       appBar: AppBar(
         title: const Text('Recording'),
         backgroundColor: Colors.transparent,
@@ -34,7 +32,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
         ),
         child: const Stack(
           children: [
-             Align(
+            Align(
               // First
               alignment: Alignment.center,
               child: Icon(
@@ -43,7 +41,6 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                 color: Colors.white,
               ),
             ),
-          
             RecorderButton(),
           ],
         ),
@@ -51,6 +48,3 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
     );
   }
 }
-
-
-  
