@@ -3,12 +3,13 @@ import 'package:on_audio_query/on_audio_query.dart';
 import 'package:just_audio/just_audio.dart';
 import 'dart:developer';
 
+// ignore: must_be_immutable
 class NowPlayingScreen extends StatefulWidget {
   NowPlayingScreen(
       {super.key, required this.audioModel, required this.audioPlayer});
 
   SongModel audioModel;
-  dynamic audioPlayer;
+  AudioPlayer audioPlayer;
 
   @override
   State<NowPlayingScreen> createState() => _NowPlayingScreenState();
@@ -108,7 +109,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                            radius: 30,
+                            radius: 35,
                             backgroundColor: Colors.deepPurple,
                             child: IconButton(
                               onPressed: () {
@@ -127,7 +128,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                                 isPlaying ? Icons.pause : Icons.play_arrow,
                                 color: Colors.white,
                               ),
-                              iconSize: 40,
+                              iconSize: 50,
                             ),
                           ),
                         ],

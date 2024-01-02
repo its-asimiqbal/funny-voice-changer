@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+import '../routes/routes_name.dart';
+
 class TextToVoiceScreen extends StatefulWidget {
   const TextToVoiceScreen({super.key});
 
@@ -28,15 +30,15 @@ class _TextToVoiceScreenState extends State<TextToVoiceScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.pushNamed(
-              //   context,
-              //   RoutesName.audioPlayerMainScreen,
-              //   arguments: {
-              //     'textController': textEditingController.text,
-              //     'path': textEditingController.text,
-              //   },
-              // );
-              textToSpeech(textEditingController.text);
+              Navigator.pushNamed(
+                context,
+                RoutesName.audioPlayerMainScreen,
+                arguments: {
+                  'textController': textEditingController.text,
+                  'path': textEditingController.text,
+                },
+              );
+              // textToSpeech(textEditingController.text);
             },
             icon: const Icon(
               Icons.check,

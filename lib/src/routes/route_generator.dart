@@ -56,8 +56,8 @@ class RouteGenerator {
             recordedPathNew: settings.arguments,
             textToSpeech: settings.arguments as Map,
             text: settings.arguments as Map,
-            audioPlayerNew: settings.arguments as Map,
-            audioModel: settings.arguments as Map,
+            // audioPlayerNew: settings.arguments as Map,
+            // audioModel: settings.arguments as Map,
           ),
         );
       case RoutesName.languagesScreen2:

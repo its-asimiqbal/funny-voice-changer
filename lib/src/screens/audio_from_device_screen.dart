@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:funny_voice_changer/src/routes/routes_name.dart';
+import 'package:funny_voice_changer/src/screens/now_playing_screen.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'dart:developer';
 
 class AudioFromDeviceScreen extends StatefulWidget {
   const AudioFromDeviceScreen({super.key});
@@ -51,19 +50,6 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
         ),
       );
       return false;
-    }
-  }
-
-  playAudio(String uri) {
-    try {
-      audioPlayer.setAudioSource(
-        AudioSource.uri(
-          Uri.parse(uri),
-        ),
-      );
-      audioPlayer.play();
-    } on Exception {
-      log('Error parsing audio');
     }
   }
 
@@ -127,20 +113,15 @@ class _AudioFromDeviceScreenState extends State<AudioFromDeviceScreen> {
                 title: Text(song.displayName),
                 subtitle: Text(formattedDuration),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => NowPlayingScreen(
-                  //       audioModel: snapshot.data![index],
-                  //       audioPlayer: audioPlayer,
-                  //     ),
-                  //   ),
-                  // );
-                  Navigator.pushNamed(context, RoutesName.audioPlayerMainScreen,
-                      arguments: {
-                        'audioModel': snapshot.data![index],
-                        'audioPlayer': audioPlayer,
-                      });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NowPlayingScreen(
+                        audioModel: snapshot.data![index],
+                        audioPlayer: audioPlayer,
+                      ),
+                    ),
+                  );
                 },
               );
             },
@@ -157,3 +138,29 @@ String formatDuration(Duration duration) {
   String seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
   return "$minutes:$seconds";
 }
+
+
+
+// playAudio(String uri) {
+  //   try {
+  //     audioPlayer.setAudioSource(
+  //       AudioSource.uri(
+  //         Uri.parse(uri),
+  //       ),
+  //     );
+  //     audioPlayer.play();
+  //   } on Exception {
+  //     log('Error parsing audio');
+  //   }
+  // }
+
+
+    // Navigator.pushNamed(
+                  //   context,
+                  //   RoutesName.audioPlayerMainScreen,
+                  //   arguments: {
+                  //     'audioModel': snapshot.data![index].uri,
+                  //     // 'audioPlayer': audioPlayer,
+                  //     'audioFunction': playAudio(snapshot.data![index].uri!),
+                  //   },
+                  // );

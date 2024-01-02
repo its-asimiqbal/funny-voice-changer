@@ -8,15 +8,15 @@ class AudioPlayerMainScreen extends StatefulWidget {
     super.key,
     this.textToSpeech,
     this.recordedPathNew,
-    this.audioModel,
-    this.audioPlayerNew,
+    // required this.audioModel,
+    // this.audioPlayerNew,
     this.text,
   });
 
   dynamic textToSpeech;
   dynamic recordedPathNew;
-  dynamic audioModel;
-  dynamic audioPlayerNew;
+  // dynamic audioModel;
+  // dynamic audioPlayerNew;
   dynamic text;
 
   @override
@@ -56,50 +56,36 @@ class _AudioPlayerMainScreenState extends State<AudioPlayerMainScreen> {
     });
   }
 
-  void playAudio() async {
+  void playAudioFunction() async {
     String textController;
 
-    if (widget.recordedPathNew != null) {
-      print('Errorororrorororo ${widget.recordedPathNew['Path']}');
-      // Play recorded audio
+    // 1st ...
+    if (widget.recordedPathNew['audioPath'] != null) {
       try {
         await audioPlayer.setAudioSource(
           AudioSource.uri(
             Uri.parse(widget.recordedPathNew['audioPath']),
           ),
         );
-        await audioPlayer.play();
-        setState(() => isPlaying = true);
+        audioPlayer.play();
       } on Exception {
         log('Cannot access recorded audio');
       }
     }
 
-    if (widget.audioPlayerNew['audioPlayer'] != null) {
-      if (widget.audioModel['audioModel'] is AudioPlayer) {
-        await widget.audioPlayerNew.play();
-      }
-      widget.audioPlayerNew['audioPlayer'].setAudioSource(
-        AudioSource.uri(
-          Uri.parse(widget.audioModel['audioModel'].toString()),
-        ),
-        AudioSource.uri(
-          widget.audioModel['audioModel'],
-        ),
-      );
-      widget.audioPlayerNew['audioPlayer'].play();
-      isPlaying = true;
-    } else if (widget.textToSpeech != null) {
+    // 3rd ...
+    else if (widget.textToSpeech['textController'] != null) {
       // Play text-to-speech
       try {
         textController = widget.textToSpeech['textController'];
-        if (textController != null) {
-          String text = textController;
-          await flutterTts.speak(text);
-          setState(() => isPlaying = true);
-        } else {
-          log('Text controller is null');
-        }
+        String text = textController;
+        await flutterTts.speak(text);
+        await flutterTts.setLanguage('en-US');
+        await flutterTts.setPitch(1);
+        await flutterTts.setVolume(1);
+        await flutterTts.setSpeechRate(1);
+        await flutterTts.setPitch(1);
+        setState(() => isPlaying = true);
       } on Exception {
         log('Error playing text-to-speech');
       }
@@ -133,14 +119,15 @@ class _AudioPlayerMainScreenState extends State<AudioPlayerMainScreen> {
             ),
             Slider(
               min: 0,
-              max: duration.inSeconds.toDouble(),
               value: position.inSeconds.toDouble(),
+              max: duration.inSeconds.toDouble(),
               activeColor: Colors.deepPurple,
-              onChanged: (value) async {
-                final position = Duration(seconds: value.toInt());
-                await audioPlayer.seek(position);
-
-                await audioPlayer.pause();
+              onChanged: (value) {
+                setState(() async {
+                  Duration duration = Duration(seconds: value.toInt());
+                  await audioPlayer.seek(duration);
+                  value = value;
+                });
               },
             ),
             Padding(
@@ -157,14 +144,14 @@ class _AudioPlayerMainScreenState extends State<AudioPlayerMainScreen> {
               radius: 35,
               backgroundColor: Colors.deepPurple,
               child: IconButton(
-                onPressed: () async {
+                onPressed: () {
                   if (isPlaying) {
-                    await audioPlayer.pause();
+                    audioPlayer.pause();
                   } else {
-                    playAudio();
+                    playAudioFunction();
                   }
 
-                  setState(() => isPlaying = audioPlayer.playing);
+                  setState(() => isPlaying = !isPlaying);
                 },
                 icon: Icon(
                   isPlaying ? Icons.pause : Icons.play_arrow,
@@ -179,3 +166,37 @@ class _AudioPlayerMainScreenState extends State<AudioPlayerMainScreen> {
     );
   }
 }
+
+
+
+
+
+//  audio from device 
+
+ // // 2nd ...
+    // if (widget.audioPlayerNew['audioModel'] != null) {
+    //   print('NOT NULL  ${widget.audioPlayerNew['audioModel']}');
+    //   // final contentUri = Uri.parse(widget.audioModel['audioModel']);
+    //   // final fileUri = await getApplicationDocumentsDirectory()
+    //   //     .then((dir) => dir.uri.resolve(contentUri.pathSegments.last));
+
+    //   // widget.audioFunction['audioFunction'];
+    //   // setState(() => isPlaying = true);
+
+    //   // void playSong() {
+    //   try {
+    //     audioPlayer.setAudioSource(
+    //       AudioSource.uri(Uri.parse(widget.audioModel.uri!)),
+    //     );
+    //     audioPlayer.play();
+    //     setState(() => isPlaying = true);
+    //   } on Exception {
+    //     // print(e.toString());
+    //     log('Error parsing audio');
+    //   }
+    //   // }
+    //   // await audioPlayer.setAudioSource(
+    //   //     AudioSource.uri(Uri.parse(uri!))); // Use class-level audioPlayer
+    //   // await audioPlayer.play();
+    //   // setState(() => isPlaying = true);
+    // }

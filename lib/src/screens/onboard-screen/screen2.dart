@@ -21,7 +21,7 @@ class Screen2 extends StatelessWidget {
             const Text(
               'Troll your friends',
               style: TextStyle(
-               fontSize: 17,
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -30,7 +30,6 @@ class Screen2 extends StatelessWidget {
             ),
             const Text(
               'Unleash your creativity with voices',
-            
               textAlign: TextAlign.center,
             )
           ],
